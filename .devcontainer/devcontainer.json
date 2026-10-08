@@ -1,0 +1,25 @@
+{
+    "name": "fleet-service",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "25",
+            "jdkDistro": "tem",
+            "installMaven": "false"
+        },
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    },
+    "mounts": [
+        "source=maven-repo,target=/home/vscode/.m2,type=volume"
+    ],
+    "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/.m2",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-maven",
+                "vmware.vscode-boot-dev-pack"
+            ]
+        }
+    }
+}
